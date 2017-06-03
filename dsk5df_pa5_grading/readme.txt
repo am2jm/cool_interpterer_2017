@@ -1,0 +1,20 @@
+Wow so we (mostly) finished the interpreter.
+
+======== Design Decision ========
+Our design for the reason file comes mostly from Weimer's video on how to structure it, and as such we just use a lot of Lists of tuples rather than any fancier ocaml data structures. To begin with we set up all of our data structures and define what will be stored in them: class map, imp map, parent map, the Cool-Values, Expressions, and all of the parts of each. Next we read in everything and parse it into all of the above parts. Finally we have a gigantic "Eval" function that evaluates everything for us. At the very end of the file we Reason-hardcode calling "main" on a "new Main" object. Our handling of pretty much everything tried to mimic the way Weimer set up how his evaluation would go. We decided that each Expression would also contain the location of where it was, as found while parsing in (though initially discarded) so that error messages could be thrown appropriately with the correct line number.
+
+For both the Let and Case we decided to reuse an "Action" which is a list of tuples of (id, type, expression (maybe)) because both of these use this in some form, even though the expression is not optional for the Case. As such we have an extra "Exp" that isn't really a cool-exp. For let we simply use a List.fold with an accumulator of enviroment and store in order to add them all to be able to finally run the "in exp" expression.
+
+Our Case was quite long and messy in that we created two lists, one of the expressed Types in the case, and one of the ancestors of expression/value being cased-upon. We compare these through another Fold with an accumulator of the (type, id, exp), basically the action minus the unnecessary knowledge of the location of each, in order to keep track of the id and exp to be able to add the id to the enviroment to run the expression which will properly return the new value and store.
+
+Additionally even though we did  not pass all of the "New"-related test cases, we were able to pass newbasic which involved us being sure to handle the basic classes, which we did by throwing the entirety of new into a if-then. The if checked for whether the new-object was one of the basics, and if it was then it would return it right there, as opposed to running the rest of the new-function/switch. Our handling of the stack-overflow errors was done by looking at the way Weimer did his debug-counter and making a counter similar to that to be called inside new and the two types of dispatch so that the counter would work properly.
+
+We handled out_string by exploding the string into a List of chars, and then iterating through that to find backslashes (\) and then if we found one we would set a flag to true, to see if the next character was either a "n" or "t", and if it was replacing the two characters with the newline character or tab character. In the case that the next character was not one of those two, we appended a backslash and whatever the current character is to the growing string. Finally we simply print the string. Later we learned that by using the longer build command we could have access to the Str module, which we used for both in_int and in_string, however we did not want to change our out_string because it worked.
+
+
+
+======== Testcase Choice ========
+test1.cl -- This checks to make sure that when calling dispatch, only the appropriate attribute are accessed
+test2.cl -- This checks the implementation for both blocks and defaults. The block must return the right item and in addition, to let the block override the default, assign and new must be handled correctly
+test3.cl -- This checks both object copying (which MUST be a shallow copy) and whether once that is done correctly, if then two objects can be compared properly
+test4.cl -- This checks one of our hardest op sym rules: case. In this test case, inheritance occurs as such A->B->C->D where D is the ultimate parent. If a case is done on b, then with the given options, D must be returned.

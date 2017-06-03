@@ -1,0 +1,17 @@
+References:
+
+Westley Weimer's:
+	https://www.youtube.com/watch?v=kearNtiYWr8&feature=youtu.be
+	 - to get a basis of how to create the parser
+ 
+ Cool Syntax:
+ https://dijkstra.cs.virginia.edu/~angstadt/teaching/spring17/4610/crm/Cool%20Syntax.html
+ 	- the holy bible
+  
+Ply-page:
+	http://www.dabeaz.com/ply/ply.html
+	- slightly less holy bible
+   
+ Office Hours:
+  	Daniel, A.J.
+ 	 - convinced us to make a script to do diffs rather than manual diffs, and some other suggestions
