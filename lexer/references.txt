@@ -1,0 +1,12 @@
+﻿1.) TA OH: how to use state to correctly match strings and comments
+2.) TA OH Friends: Discussions on figuring out what test cases might mean
+3.) http://www.theasciicode.com.ar/ascii-control-characters/line-feed-ascii-code-10.html
+Used to find the ascii values for certain forbidden characters 
+4.) https://dijkstra.cs.virginia.edu/~angstadt/teaching/spring17/4610/crm/One%20Page.html
+Cool reference manual used heavily for specifics on what is and isn’t acceptable 
+5.) http://jflex.de/manual.html
+JFlex Manual for syntax 
+6.) https://piazza.com/class/ixjesgs8k113fp?cid=98
+Constantly read threads on piazza in hopes of finding clues
+7.) calc_lex example from class: Used these files to get started and modified them to fit my purposes 
+8.) https://youtu.be/pJxgoeTT2QA to help in the beginning to get an idea of what to do

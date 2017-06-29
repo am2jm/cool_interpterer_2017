@@ -1,0 +1,11 @@
+1.) http://stackoverflow.com/questions/4025893/how-to-check-identical-array-in-most-efficient-way
+--how to check if two arrays are equal
+2.) https://dijkstra.cs.virginia.edu/~angstadt/teaching/spring17/4610/crm/
+--Cool Documentation
+3.) TA OH
+--specific bugs and clarification
+-- help with how to structure our code (Read in, T-Check, Output)
+4.) https://www.youtube.com/watch?v=2CMhLddBt1M&feature=youtu.be
+https://www.youtube.com/watch?v=Wa9zMygcv_M&feature=youtu.be
+https://www.youtube.com/watch?v=Oxpgrkmsxhg&feature=youtu.be
+--Weimer's videos: used to get started on all of the different parts
